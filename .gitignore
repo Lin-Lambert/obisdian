@@ -1,0 +1,12 @@
+# 1. 忽略所有以点开头的文件和文件夹
+.*
+
+# 2. 豁免 .gitignore 文件本身（必须保留）
+!.gitignore
+
+# 3. 豁免你真正需要同步的隐藏文件夹（例如笔记库的核心配置）
+!.obsidian/
+
+# 4. 如果豁免了整个文件夹，但里面仍有不需要的缓存，可以再次单独屏蔽
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
