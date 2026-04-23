@@ -79,6 +79,37 @@
 
 ```plantuml
 @startuml
+skinparam DefaultFontName "Microsoft YaHei"
+skinparam BackgroundColor white
+skinparam Shadowing false
+skinparam RoundCorner 10
+skinparam participant {
+  BackgroundColor #dae8fc
+  BorderColor #6c8ebf
+  FontColor #333333
+  FontSize 13
+}
+skinparam sequence {
+  ArrowColor #6c8ebf
+  LifeLineBorderColor #999999
+}
+skinparam database {
+  BackgroundColor #fff2cc
+  BorderColor #d6b656
+  FontColor #333333
+  FontSize 13
+}
+skinparam actor {
+  FontColor #333333
+  FontSize 13
+}
+skinparam note {
+  BackgroundColor #FFF9E6
+  BorderColor #D6B656
+  FontColor #333333
+  FontSize 12
+}
+
 autonumber
 actor "客户端 (Kibana/App)" as Client
 participant "协调节点 (Coordinating)" as Coord
@@ -165,6 +196,37 @@ Elasticsearch 之所以能做分布式的海量存储，且保证相同的文档
 
 ```plantuml
 @startuml
+skinparam DefaultFontName "Microsoft YaHei"
+skinparam BackgroundColor white
+skinparam Shadowing false
+skinparam RoundCorner 10
+skinparam participant {
+  BackgroundColor #dae8fc
+  BorderColor #6c8ebf
+  FontColor #333333
+  FontSize 13
+}
+skinparam sequence {
+  ArrowColor #6c8ebf
+  LifeLineBorderColor #999999
+}
+skinparam database {
+  BackgroundColor #fff2cc
+  BorderColor #d6b656
+  FontColor #333333
+  FontSize 13
+}
+skinparam actor {
+  FontColor #333333
+  FontSize 13
+}
+skinparam note {
+  BackgroundColor #FFF9E6
+  BorderColor #D6B656
+  FontColor #333333
+  FontSize 12
+}
+
 autonumber
 actor 客户端 as Client
 participant "协调节点\n(Coordinating)" as Coord
@@ -204,6 +266,37 @@ deactivate Coord
 
 ```plantuml
 @startuml
+skinparam DefaultFontName "Microsoft YaHei"
+skinparam BackgroundColor white
+skinparam Shadowing false
+skinparam RoundCorner 10
+skinparam participant {
+  BackgroundColor #dae8fc
+  BorderColor #6c8ebf
+  FontColor #333333
+  FontSize 13
+}
+skinparam sequence {
+  ArrowColor #6c8ebf
+  LifeLineBorderColor #999999
+}
+skinparam database {
+  BackgroundColor #fff2cc
+  BorderColor #d6b656
+  FontColor #333333
+  FontSize 13
+}
+skinparam actor {
+  FontColor #333333
+  FontSize 13
+}
+skinparam note {
+  BackgroundColor #FFF9E6
+  BorderColor #D6B656
+  FontColor #333333
+  FontSize 12
+}
+
 autonumber
 actor 客户端 as Client
 participant "协调节点\n(Coordinating)" as Coord

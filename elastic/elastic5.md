@@ -62,15 +62,22 @@ Elasticsearch (ES) 提供了多种数据分页方式，以满足从前端 UI 展
 
 ```plantuml
 @startuml
-' --- 样式设置 ---
-skinparam handwritten false
-skinparam roundcorner 10
-skinparam ParticipantPadding 40
-skinparam SequenceMessageAlign center
-skinparam NoteBackgroundColor #FFF9C4
+' 全局样式配色 (遵循 uml skill 规范中的 skinparam 说明)
+skinparam sequence {
+    ArrowColor DeepSkyBlue
+    LifeLineBorderColor DeepSkyBlue
+    LifeLineBackgroundColor #E0FFFF
+    
+    ParticipantBorderColor DarkBlue
+    ParticipantFontColor White
+    
+    NoteBackgroundColor #FEFEE2
+    NoteBorderColor #E5D539
+}
 
-participant "客户端 (Client)" as C #E3F2FD
-participant "ES 协调节点 (Coordinator)" as ES #E8F5E9
+' 个体元素的专用配色 (遵循 uml skill 规范中的 #color 说明)
+actor "客户端 (Client)" as C #LightYellow
+participant "ES 协调节点 (Coordinator)" as ES #SeaGreen
 
 autonumber "<b>[0]</b>"
 

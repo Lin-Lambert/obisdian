@@ -2,24 +2,48 @@
 
 Elasticsearch 最常见、也是默认的分布式搜索执行逻辑被称为 **Query Then Fetch（先查询，后获取）**。这个过程分为两个主要阶段，以确保在分布式架构下能够高效、准确地拿到 Top-N 的结果。
 
-## 查询流程图 (Mermaid)
+## 流程图 (PlantUML)
 
 ```plantuml
 @startuml
-skinparam handwritten false
-skinparam titleBorderRoundCorner 15
-skinparam titleBorderThickness 2
-skinparam titleBorderColor red
-skinparam titleBackgroundColor Aqua-CadetBlue
-skinparam shadowing false
-skinparam DefaultFontName "Microsoft YaHei"
-skinparam DefaultFontSize 13
+skinparam participant {
+  BackgroundColor #dae8fc
+  BorderColor #6c8ebf
+  FontName "Microsoft YaHei"
+  FontSize 13
+}
+skinparam sequence {
+  ArrowColor #333333
+  LifeLineBorderColor #999999
+  GroupBackgroundColor #f5f5f5
+  GroupBorderColor #cccccc
+  DividerBackgroundColor #eeeeee
+}
+skinparam database {
+  BackgroundColor #fff2cc
+  BorderColor #d6b656
+  FontName "Microsoft YaHei"
+  FontSize 13
+}
+skinparam actor {
+  FontName "Microsoft YaHei"
+  FontSize 13
+}
+skinparam note {
+  BackgroundColor #FFF9E6
+  BorderColor #D6B656
+  FontName "Microsoft YaHei"
+  FontSize 12
+}
 
 title Elasticsearch 查询索引流程 (Query Then Fetch)
 
 actor "客户端\n(Client)" as Client
-participant "协调节点\n(Coordinating Node)" as CoordNode
-database "数据分片 1...N\n(Data Shards)" as Shards
+
+box "Elasticsearch Cluster" #F5F5F5
+  participant "协调节点\n(Coordinating Node)" as CoordNode #A8D08D
+  database "数据分片 1...N\n(Data Shards)" as Shards #F4B183
+end box
 
 == 第一阶段：Query Phase (查询阶段) ==
 autonumber 1
@@ -62,7 +86,7 @@ deactivate CoordNode
 ## 流程详细说明
 
 ### 第一阶段：Query Phase（查询阶段）
-在这个阶段，系统主要是为了找出 **“哪些文档（Doc ID）符合条件”** 以及 **“它们的分数（Score）排在最前面”**。
+在这个阶段，系统主要是为了找出 **"哪些文档（Doc ID）符合条件"** 以及 **"它们的分数（Score）排在最前面"**。
 
 1. **接收请求**：客户端（Client）发起一个 Search 请求，集群中接收到该请求的节点充当本次搜索的 **协调节点（Coordinating Node）**。
 2. **路由广播**：协调节点解析查询条件，确定需要查询哪些索引。然后将请求转发到对应索引的每个分片（Shard）上。这里它会在主分片（Primary）和副本分片（Replica）中运用轮询策略随机选择一个以实现负载均衡。

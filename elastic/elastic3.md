@@ -64,13 +64,30 @@
 
 ```plantuml
 @startuml
+skinparam DefaultFontName "Microsoft YaHei"
+skinparam BackgroundColor white
+skinparam Shadowing false
+skinparam RoundCorner 10
 skinparam componentStyle rectangle
 
-component "Index \n(数据容器/表)" as idx
-component "Mapping \n(结构规范/表结构)" as map
+skinparam component {
+  BackgroundColor #dae8fc
+  BorderColor #6c8ebf
+  FontColor #333333
+  FontSize 13
+}
+
+skinparam Arrow {
+  Color #6c8ebf
+  FontColor #666666
+  FontSize 12
+}
+
+component "Index \n(数据容器/表)" as idx #d5e8d4
+component "Mapping \n(结构规范/表结构)" as map #ffe6cc
 component "Document 1 \n(JSON数据/行)" as doc1
 component "Document 2 \n(JSON数据/行)" as doc2
-component "Field: name, age \n(键值对/列)" as field
+component "Field: name, age \n(键值对/列)" as field #fff2cc
 
 idx *-- map : "具有统一 \n (1对1)"
 idx *-- doc1 : "存储包含 \n (1对多)"

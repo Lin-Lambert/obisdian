@@ -830,15 +830,24 @@ PUT /my_custom_index
 
 ```plantuml
 @startuml
-skinparam handwritten false
-skinparam roundcorner 10
-skinparam ParticipantPadding 40
-skinparam DefaultFontName "Microsoft YaHei"
+' 全局样式配色 (遵循 uml skill 规范中的 skinparam 说明)
+skinparam sequence {
+    ArrowColor DeepSkyBlue
+    LifeLineBorderColor DeepSkyBlue
+    LifeLineBackgroundColor #E0FFFF
+    
+    ParticipantBorderColor DarkBlue
+    ParticipantFontColor White
+    
+    NoteBackgroundColor #FEFEE2
+    NoteBorderColor #E5D539
+}
 
-participant "客户端 (Client)" as C #E3F2FD
-participant "协调节点 (Coordinating)" as Coord #E8F5E9
-participant "主节点 (Master)" as Master #FFF9C4
-participant "数据节点 (Data Node)" as Data #FFCCBC
+' 个体元素的专用配色 (遵循 uml skill 规范中的 #color 说明)
+actor "客户端 (Client)" as C #LightYellow
+participant "协调节点 (Coordinating)" as Coord #SeaGreen
+participant "主节点 (Master)" as Master #SteelBlue
+participant "数据节点 (Data Node)" as Data #LightPink
 
 autonumber "<b>[0]</b>"
 

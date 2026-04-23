@@ -6,54 +6,56 @@
 
 ```plantuml
 @startmindmap
+' 全局样式配色 (遵循 uml skill 规范)
 skinparam BackgroundColor white
 skinparam Shadowing false
 skinparam RoundCorner 10
 skinparam DefaultFontName "Microsoft YaHei"
 skinparam NodePadding 15
 
-* Elasticsearch 字段类型
+' 个体元素的专用配色 (遵循 uml skill 规范中的 #color 说明)
+*[#LightYellow] Elasticsearch 字段类型
 
-** 核心数据类型
-*** 字符串 (String)
+**[#SeaGreen] 核心数据类型
+***[#E0FFFF] 字符串 (String)
 ****_ text: 全文搜索，会被分词
 ****_ keyword: 精确匹配，不分词
-*** 数字类型 (Numeric)
+***[#E0FFFF] 数字类型 (Numeric)
 ****_ 整数: byte, integer, long等
 ****_ 浮点数: float, double等
-*** 日期类型 (Date)
+***[#E0FFFF] 日期类型 (Date)
 ****_ date: 毫秒精度
 ****_ date_nanos: 纳秒精度
-*** 布尔类型
+***[#E0FFFF] 布尔类型
 ****_ boolean: true / false
-*** 二进制 (Binary)
+***[#E0FFFF] 二进制 (Binary)
 ****_ binary: Base64编码，默认不可搜
 
-** 复杂数据类型
-*** 对象类型 (Object)
+**[#SteelBlue] 复杂数据类型
+***[#E0FFFF] 对象类型 (Object)
 ****_ 处理单层或嵌套JSON，内部打平
-*** 嵌套类型 (Nested)
+***[#E0FFFF] 嵌套类型 (Nested)
 ****_ Object数组版本，子对象独立文档索引
 
 left side
 
-** 地理空间类型
-*** 地理点 (Geo-point)
+**[#LightPink] 地理空间类型
+***[#E0FFFF] 地理点 (Geo-point)
 ****_ 存储经纬度坐标对，支持聚合
-*** 地理形状 (Geo-shape)
+***[#E0FFFF] 地理形状 (Geo-shape)
 ****_ 支持点集、线段等复杂边界
 
-** 专有数据类型
-*** 特殊基础
+**[#F4B183] 专有数据类型
+***[#E0FFFF] 特殊基础
 ****_ ip: IPv4/IPv6 范围
 ****_ completion: FST极速自动补全
 ****_ token_count: 存储分词项数量
 ****_ murmur3: 存储哈希极速去重聚合
-*** 关系与结构
+***[#E0FFFF] 关系与结构
 ****_ join: 同一索引内建立父子关系
 ****_ flattened: 平铺JSON防止映射爆炸
 ****_ alias: 创建虚拟别名
-*** 高级与AI检索
+***[#E0FFFF] 高级与AI检索
 ****_ dense_vector: 稠密向量KNN相似度
 ****_ search_as_you_type: 提供N-gram支持边搜边输
 ****_ percolator: 逆向匹配！入库查询语句
